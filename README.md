@@ -1,10 +1,10 @@
 ## Introduction
 
-During the mid-20th century, the world witnessed a period of intense nuclear experimentation driven by the United States and the Soviet Union. These tests, conducted primarily between 1945 and 1951, marked significant milestones in the development of nuclear weapons technology and the escalation of the Cold War. The data presented here provides a glimpse into this tumultuous era, documenting the details of nuclear tests carried out by these two superpowers.
+During the mid-20th century, the world witnessed a period of intense nuclear experimentation driven by the United States and the Soviet Union. These tests, conducted primarily between 1945 and 1998, marked significant milestones in the development of nuclear weapons technology and the escalation of the Cold War. The data presented here provides a glimpse into this tumultuous era, documenting the details of nuclear tests carried out by these two superpowers.
 
 
 ## About the Dataset
-This dataset contains information about nuclear tests conducted between 1945 and 1951 by The United States, The Soviet Union, France, China, The United Kingdom, India and Pakistan. The data includes details such as the year of the test, unique identification numbers, countries where the tests were conducted, regions within those countries, the responsible organization (e.g., DOE), geographical coordinates of the test sites, magnitudes of the explosions, depths of the tests, estimated yields, and purposes of the tests.
+This dataset contains information about nuclear tests conducted between 1945 and 1998 by The United States, The Soviet Union, France, China, The United Kingdom, India and Pakistan. The data includes details such as the year of the test, unique identification numbers, countries where the tests were conducted, regions within those countries, the responsible organization (e.g., DOE), geographical coordinates of the test sites, magnitudes of the explosions, depths of the tests, estimated yields, and purposes of the tests.
 
 
 ## Columns Description:
