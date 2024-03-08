@@ -1,0 +1,87 @@
+---
+title: "NuclearExplosions"
+output: html_document
+date: "2024-02-13"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Packages 
+
+```{r}
+pacman::p_load(tidyverse, ggplot2, cowplot, viridisLite)
+```
+
+# Reading the csv file
+
+```{r}
+nuclear_explosions <- 
+  read_csv("data_2019-08-20.csv",
+           col_types = "cddcccdddddddccc") %>%
+  # Mutate the data to lump countries and handle infrequent categories
+  mutate(country = fct_lump(country, n = 5, other_level = "Pakistan & India"),
+         country = fct_infreq(country))
+```
+
+# Creating a summarized dataframe for time series analysis
+
+```{r}
+df_ts <- nuclear_explosions %>%
+  group_by(year, country, .drop = FALSE) %>%
+  summarise(count = n(), .groups = "drop")
+```
+
+# Creating a dataframe for counting occurrences per country
+
+```{r}
+df_count <- count(nuclear_explosions, country)
+print(df_count)
+```
+
+# Plot for the total counts per country
+
+```{r, }
+p_count <- 
+  ggplot(df_count) +
+  aes(x = reorder(country, n), y = n, fill = country) +  # Order bars by count
+  geom_bar(stat = "identity", color = NA) +              # Create bar plot
+  coord_flip() +                                         # Flip coordinates
+  scale_fill_viridis_d() +                               # Use viridis color palette
+  labs(x = NULL, y = NULL, title = "Total per country") + # Set labels and title
+  theme_minimal() +                                      # Use minimal theme
+  theme(legend.position = "none")
+
+print(p_count)
+```
+
+# Plot for number of nuclear explosions per year and country
+
+```{r}
+p_year <- ggplot(df_ts) +
+  aes(x = year, 
+      y = count, 
+      fill = country) +             
+  geom_area(color = NA) +                                
+  labs(x = "Year", 
+       y = "Total Number of explosions", 
+       fill = "Device deployed by",  
+       title = "Number of nuclear explosions per year and country") +
+  theme_minimal() +                                      
+  theme(legend.position = "right",                       
+        plot.title = element_text(size = 15),            
+        plot.caption = element_text(size = 11),          
+        axis.title = element_text(size = 10),            
+        plot.margin = unit(c(20, 20, 20, 20), "points")) 
+
+print(p_year)
+
+```
+
+
+
+
+
+
+
