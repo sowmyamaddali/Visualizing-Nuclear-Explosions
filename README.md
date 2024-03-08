@@ -30,4 +30,4 @@ Researchers, historians, and analysts can utilize this dataset to delve into the
 
 
 ## Image
-<img src="Screenshot 2024-02-14 at 12.20.36 AM.png"/>
+<img src="Screenshot 2024-02-14 at 12.20.36 AM.png" alt = "Number of nuclear explosions per year and country" width = "75%"/>
